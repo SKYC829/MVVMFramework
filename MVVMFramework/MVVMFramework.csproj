@@ -4,6 +4,9 @@
     <!--<TargetFramework>netcoreapp3.1</TargetFramework>-->
 	  <TargetFrameworks>netcoreapp3.1;net452;net4;net451;net461;net472</TargetFrameworks>
     <UseWPF>true</UseWPF>
+    <Authors>SKYC</Authors>
+    <Description>一个轻量级的MVVM框架</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netcoreapp3.1|AnyCPU'">

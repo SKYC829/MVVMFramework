@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <!--<TargetFramework>netcoreapp3.1</TargetFramework>-->
-	  <TargetFrameworks>netcoreapp3.1;net452;net4;net451;net461;net472</TargetFrameworks>
+	  <TargetFrameworks>netcoreapp3.1;net452;net451;net461;net472</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <Authors>SKYC</Authors>
     <Description>一个轻量级的MVVM框架</Description>
@@ -15,8 +15,11 @@
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp3.1|AnyCPU'">
+    <DocumentationFile>.\MVVMFramework.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="Commands\" />
     <Folder Include="Events\" />
     <Folder Include="Configs\" />

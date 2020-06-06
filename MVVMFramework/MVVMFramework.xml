@@ -1,0 +1,234 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MVVMFramework</name>
+    </assembly>
+    <members>
+        <member name="T:MVVMFramework.Controls.MessageBoxEx">
+            <summary>
+            MessageBoxEx.xaml 的交互逻辑
+            </summary>
+            <summary>
+            MessageBoxEx
+            </summary>
+        </member>
+        <member name="M:MVVMFramework.Controls.MessageBoxEx.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MVVMFramework.Interfaces.IViewModel">
+            <summary>
+            ViewModel模型的接口规范
+            <para>所有ViewModel必须遵循以下规范</para>
+            <list type="table">
+            <item>
+            <term>Window窗体</term>
+            <description>Vm_Window+窗体名</description>
+            </item>
+            <item>
+            <term>Page页面</term>
+            <description>Vm_Page+页面名</description>
+            </item>
+            <item>
+            <term>UserControl用户控件</term>
+            <description>Vm_UC+控件名</description>
+            </item>
+            </list>
+            <para>所有规范标准大小写必须一致</para>
+            </summary>
+        </member>
+        <member name="E:MVVMFramework.Interfaces.IViewModel.OnElementLoaded">
+            <summary>
+            UI元素加载完成事件
+            </summary>
+        </member>
+        <member name="E:MVVMFramework.Interfaces.IViewModel.OnElementUnLoaded">
+            <summary>
+            UI元素移除完成事件
+            </summary>
+        </member>
+        <member name="E:MVVMFramework.Interfaces.IViewModel.OnElementClosing">
+            <summary>
+            UI元素关闭事件
+            </summary>
+        </member>
+        <member name="P:MVVMFramework.Interfaces.IViewModel.UINameSpace">
+            <summary>
+            UI元素命名空间
+            <para>用于反射创建UI元素用</para>
+            </summary>
+        </member>
+        <member name="P:MVVMFramework.Interfaces.IViewModel.UIElementName">
+            <summary>
+            UI元素名称
+            <para>用于反射创建UI元素用</para>
+            </summary>
+        </member>
+        <member name="P:MVVMFramework.Interfaces.IViewModel.UIElement">
+            <summary>
+            UI元素的引用
+            </summary>
+        </member>
+        <member name="M:MVVMFramework.Interfaces.IViewModel.Show">
+            <summary>
+            显示UI元素
+            </summary>
+        </member>
+        <member name="M:MVVMFramework.Interfaces.IViewModel.ShowDialog">
+            <summary>
+            以模态窗体的形式显示UI元素
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MVVMFramework.Interfaces.IViewModel.Close">
+            <summary>
+            关闭UI元素
+            </summary>
+        </member>
+        <member name="M:MVVMFramework.Interfaces.IViewModel.Hide">
+            <summary>
+            隐藏UI元素
+            </summary>
+        </member>
+        <member name="M:MVVMFramework.Interfaces.IViewModel.ShowMessage(System.String)">
+            <summary>
+            显示消息
+            </summary>
+            <param name="message">消息内容</param>
+        </member>
+        <member name="M:MVVMFramework.Interfaces.IViewModel.ShowMessage(System.String,System.Exception)">
+            <summary>
+            显示消息
+            </summary>
+            <param name="message">消息内容</param>
+            <param name="innerException">错误信息</param>
+        </member>
+        <member name="M:MVVMFramework.Interfaces.IViewModel.Invoke(System.Action)">
+            <summary>
+            交换到线程来按线程优先级执行一个委托方法
+            </summary>
+            <param name="executeCode">委托方法</param>
+        </member>
+        <member name="M:MVVMFramework.Interfaces.IViewModel.Invoke``1(System.Action{``0},``0)">
+            <summary>
+            交换到线程来按线程优先级执行一个委托方法
+            </summary>
+            <typeparam name="T">委托方法参数的类型</typeparam>
+            <param name="executeCode">委托方法</param>
+            <param name="para">委托方法的参数</param>
+        </member>
+        <member name="M:MVVMFramework.Interfaces.IViewModel.Execute(System.Action,System.Action)">
+            <summary>
+            异步执行一个委托方法,并在完成时执行回掉函数
+            </summary>
+            <param name="executeCode">委托方法</param>
+            <param name="callback">回掉函数</param>
+            <returns></returns>
+        </member>
+        <member name="M:MVVMFramework.Interfaces.IViewModel.Execute``1(System.Action{``0},``0,System.Action)">
+            <summary>
+            异步执行一个委托方法,并在完成时执行回掉函数
+            </summary>
+            <typeparam name="T">委托方法的参数的类型</typeparam>
+            <param name="executeCode">委托方法</param>
+            <param name="para">委托方法的参数</param>
+            <param name="callback">回掉函数</param>
+            <returns></returns>
+        </member>
+        <member name="M:MVVMFramework.Interfaces.IViewModel.Execute``2(System.Func{``0,``1},``0,System.Action{``1})">
+            <summary>
+            异步执行一个委托方法,并在完成时执行回掉函数
+            </summary>
+            <typeparam name="T1">委托方法的参数的类型</typeparam>
+            <typeparam name="T2">回调函数的参数的类型</typeparam>
+            <param name="executeCode">委托方法</param>
+            <param name="para">委托方法的参数</param>
+            <param name="callback">回掉函数</param>
+            <returns></returns>
+        </member>
+        <member name="M:MVVMFramework.Interfaces.IViewModel.Execute``1(System.Func{``0},System.Action{``0})">
+            <summary>
+            异步执行一个委托方法,并在完成时执行回掉函数
+            </summary>
+            <typeparam name="T">回调函数的参数的类型</typeparam>
+            <param name="executeCode">委托方法</param>
+            <param name="callback">回掉函数</param>
+            <returns></returns>
+        </member>
+        <member name="T:MVVMFramework.Models.BaseModel">
+            <summary>
+            ViewModel模型的基类
+            <para>所有ViewModel必须遵循以下规范</para>
+            <list type="table">
+            <item>
+            <term>Window窗体</term>
+            <description>Vm_Window+窗体名</description>
+            </item>
+            <item>
+            <term>Page页面</term>
+            <description>Vm_Page+页面名</description>
+            </item>
+            <item>
+            <term>UserControl用户控件</term>
+            <description>Vm_UC+控件名</description>
+            </item>
+            </list>
+            <para>所有规范标准大小写必须一致</para>
+            </summary>
+        </member>
+        <member name="M:MVVMFramework.Models.BaseModel.GetType(System.String)">
+            <summary>
+            获取程序集下一个类型的实例
+            </summary>
+            <param name="typeName">要获取类型实例的名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:MVVMFramework.Models.BaseModel.GetType(System.String,System.String)">
+            <summary>
+            获取程序集下一个类型的实例
+            </summary>
+            <param name="assemblyName">程序集名称</param>
+            <param name="typeName">要获取类型实例的名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:MVVMFramework.Models.BaseModel.Get``1">
+            <summary>
+            获取对象的实例
+            </summary>
+            <typeparam name="T">对象实例的类型</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:MVVMFramework.Models.BaseModel.Get``1(System.String)">
+            <summary>
+            获取对象的实例
+            </summary>
+            <typeparam name="T">对象实例的类型</typeparam>
+            <param name="elementFullName">要获取对象的全称</param>
+            <returns></returns>
+        </member>
+        <member name="M:MVVMFramework.Models.BaseModel.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MVVMFramework.Models.BaseModel.GetProjectNameSpace">
+            <summary>
+            获取引用此项目的命名空间
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MVVMFramework.Models.BaseModel.SetUIElement">
+            <summary>
+            获取并创建WPF的UI元素
+            </summary>
+        </member>
+        <member name="M:MVVMFramework.Models.BaseModel.OnPropertyChanged(System.String)">
+            <summary>
+            通知UI线程某个属性的值被改变了方法
+            <para>用于更新UI显示</para>
+            </summary>
+            <param name="propertyName">改变了的属性的名称，为空时默认调用的方法名或属性名</param>
+        </member>
+    </members>
+</doc>

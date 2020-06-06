@@ -8,7 +8,7 @@ namespace MVVMFramework.Interfaces
 {
     /// <summary>
     /// ViewModel模型的接口规范
-    /// <para>所有ViewModel必须遵循一下规范</para>
+    /// <para>所有ViewModel必须遵循以下规范</para>
     /// <list type="table">
     /// <item>
     /// <term>Window窗体</term>

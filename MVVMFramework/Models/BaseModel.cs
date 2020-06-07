@@ -1,4 +1,5 @@
-﻿using MVVMFramework.Interfaces;
+﻿using MVVMFramework.Configs;
+using MVVMFramework.Interfaces;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -55,7 +56,7 @@ namespace MVVMFramework.Models
             }
             else
             {
-                throw new InvalidOperationException("只有窗体可以使用Close方法！");
+                throw new FrameworkException(101,"只有窗体可以使用Close方法！");
             }
         }
 
@@ -162,13 +163,13 @@ namespace MVVMFramework.Models
             }
             else
             {
-                throw new InvalidOperationException("只有窗体可以使用ShowDialog方法！");
+                throw new FrameworkException(101,"只有窗体可以使用ShowDialog方法！");
             }
         }
 
         public virtual void ShowMessage(string message)
         {
-            throw new NotImplementedException(message);
+            throw new FrameworkException(102,message);
         }
 
         public void ShowMessage(string message, Exception innerException)
@@ -299,7 +300,7 @@ namespace MVVMFramework.Models
             }
             else
             {
-                throw new InvalidCastException(string.Format("元素[{0}]不符合命名规范！", UIElementName));
+                throw new FrameworkException(103,string.Format("元素[{0}]不符合命名规范！", UIElementName));
             }
         }
 

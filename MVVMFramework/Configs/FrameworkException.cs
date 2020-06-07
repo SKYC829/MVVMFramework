@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.Serialization;
-using System.Text;
 
 namespace MVVMFramework.Configs
 {
@@ -30,7 +28,7 @@ namespace MVVMFramework.Configs
         /// </summary>
         /// <param name="errorCode">异常错误码</param>
         /// <param name="message">异常信息</param>
-        public FrameworkException(int errorCode,string message) : base(message)
+        public FrameworkException(int errorCode, string message) : base(message)
         {
             HResult = errorCode;
         }
@@ -50,8 +48,8 @@ namespace MVVMFramework.Configs
         /// <param name="errorCode">异常错误码</param>
         /// <param name="message">异常信息</param>
         /// <param name="paras">异常信息参数</param>
-        public FrameworkException(int errorCode,string message,params object[] paras):this(errorCode,string.Format(message,paras))
-        {            
+        public FrameworkException(int errorCode, string message, params object[] paras) : this(errorCode, string.Format(message, paras))
+        {
         }
 
         /// <summary>
@@ -89,7 +87,7 @@ namespace MVVMFramework.Configs
         /// <param name="errorCode">异常错误码</param>
         /// <param name="message">异常信息</param>
         /// <returns></returns>
-        public static FrameworkException Create(int errorCode,string message)
+        public static FrameworkException Create(int errorCode, string message)
         {
             return Create(errorCode, message, null);
         }
@@ -101,7 +99,7 @@ namespace MVVMFramework.Configs
         /// <param name="message">异常信息</param>
         /// <param name="paras">异常信息的参数</param>
         /// <returns></returns>
-        public static FrameworkException Create(int errorCode,string message,params object[] paras)
+        public static FrameworkException Create(int errorCode, string message, params object[] paras)
         {
             return new FrameworkException(errorCode, message, paras);
         }

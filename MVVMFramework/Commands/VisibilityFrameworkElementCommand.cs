@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
+﻿using System.Windows;
 
 namespace MVVMFramework.Commands
 {
     /// <summary>
     /// UI元素可视属性的自定义命令
     /// </summary>
-    public class VisibilityFrameworkElementCommand:BaseCommand
+    public class VisibilityFrameworkElementCommand : BaseCommand
     {
         /// <summary>
         /// 构造函数
@@ -21,9 +18,9 @@ namespace MVVMFramework.Commands
             {
                 return;
             }
-            if(para is FrameworkElement element)
+            if (para is FrameworkElement element)
             {
-                if(element.Visibility == System.Windows.Visibility.Visible)
+                if (element.Visibility == System.Windows.Visibility.Visible)
                 {
                     element.Visibility = System.Windows.Visibility.Hidden;
                 }

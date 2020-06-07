@@ -1,7 +1,4 @@
 ﻿using MVVMFramework.Configs;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 
 namespace MVVMFramework.Commands
@@ -9,7 +6,7 @@ namespace MVVMFramework.Commands
     /// <summary>
     /// 最大化最小化窗体自定义命令
     /// </summary>
-    public class ResizeWindowCommand:BaseCommand
+    public class ResizeWindowCommand : BaseCommand
     {
         /// <summary>
         /// 构造函数
@@ -23,9 +20,9 @@ namespace MVVMFramework.Commands
                 return;
             }
 
-            if(para is Window window)
+            if (para is Window window)
             {
-                if(window.WindowState == WindowState.Maximized || window.WindowState == WindowState.Minimized)
+                if (window.WindowState == WindowState.Maximized || window.WindowState == WindowState.Minimized)
                 {
                     window.WindowState = WindowState.Normal;
                 }

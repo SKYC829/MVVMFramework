@@ -50,13 +50,13 @@ namespace MVVMFramework.Models
         #region 接口方法
         public void Close()
         {
-            if(UIElement is Window window)
+            if (UIElement is Window window)
             {
                 window.Close();
             }
             else
             {
-                throw new FrameworkException(101,"只有窗体可以使用Close方法！");
+                throw new FrameworkException(101, "只有窗体可以使用Close方法！");
             }
         }
 
@@ -83,7 +83,7 @@ namespace MVVMFramework.Models
             IAsyncResult result = executeCode?.BeginInvoke(para, delegate (IAsyncResult ar)
              {
                  T2 ret = default(T2);
-                 if(executeCode != null)
+                 if (executeCode != null)
                  {
                      ret = executeCode.EndInvoke(ar);
                  }
@@ -97,7 +97,7 @@ namespace MVVMFramework.Models
             return Execute<T, T>(delegate (T para)
              {
                  T ret = default(T);
-                 if(executeCode != null)
+                 if (executeCode != null)
                  {
                      ret = executeCode.Invoke();
                  }
@@ -107,7 +107,7 @@ namespace MVVMFramework.Models
 
         public void Hide()
         {
-            if(UIElement is Window window)
+            if (UIElement is Window window)
             {
                 window.Hide();
             }
@@ -127,25 +127,25 @@ namespace MVVMFramework.Models
 
         public void Invoke<T>(Action<T> executeCode, T para)
         {
-            if(UIElement != null)
+            if (UIElement != null)
             {
                 UIElement.Dispatcher.BeginInvoke(new Action(delegate ()
                 {
                     executeCode?.Invoke(para);
-                }),System.Windows.Threading.DispatcherPriority.Normal);
+                }), System.Windows.Threading.DispatcherPriority.Normal);
             }
             else
             {
                 Application.Current.Dispatcher.BeginInvoke(new Action(delegate ()
                 {
                     executeCode?.Invoke(para);
-                }),System.Windows.Threading.DispatcherPriority.Normal);
+                }), System.Windows.Threading.DispatcherPriority.Normal);
             }
         }
 
         public void Show()
         {
-            if(UIElement is Window window)
+            if (UIElement is Window window)
             {
                 window.Show();
             }
@@ -157,24 +157,24 @@ namespace MVVMFramework.Models
 
         public bool? ShowDialog()
         {
-            if(UIElement is Window window)
+            if (UIElement is Window window)
             {
                 return window.ShowDialog();
             }
             else
             {
-                throw new FrameworkException(101,"只有窗体可以使用ShowDialog方法！");
+                throw new FrameworkException(101, "只有窗体可以使用ShowDialog方法！");
             }
         }
 
         public virtual void ShowMessage(string message)
         {
-            throw new FrameworkException(102,message);
+            throw new FrameworkException(102, message);
         }
 
         public void ShowMessage(string message, Exception innerException)
         {
-            ShowMessage(string.Format("发生{2}异常:{0}\r\n{1}.", message, innerException.Message,nameof(innerException)));
+            ShowMessage(string.Format("发生{2}异常:{0}\r\n{1}.", message, innerException.Message, nameof(innerException)));
         }
         #endregion
 
@@ -194,7 +194,7 @@ namespace MVVMFramework.Models
         /// <param name="assemblyName">程序集名称</param>
         /// <param name="typeName">要获取类型实例的名称</param>
         /// <returns></returns>
-        protected Type GetType(string assemblyName,string typeName)
+        protected Type GetType(string assemblyName, string typeName)
         {
             Assembly assembly = Assembly.Load(assemblyName);
             Type result = assembly.GetTypes().FirstOrDefault(p => p.Name.Equals(typeName.Replace(string.Format("{0}.", assemblyName), ""))); //assembly.GetType(typeName, true, false);
@@ -259,14 +259,6 @@ namespace MVVMFramework.Models
             {
                 UIElementName = UIElementName.TrimStart("Window".ToCharArray());
                 UIElement = Get<Window>();
-                (UIElement as Window).Loaded += delegate (object sender, RoutedEventArgs e)
-                 {
-                     OnElementLoaded?.Invoke(sender, e);
-                 };
-                (UIElement as Window).Unloaded += delegate (object sender, RoutedEventArgs e)
-                {
-                    OnElementUnLoaded?.Invoke(sender, e);
-                };
                 (UIElement as Window).Closing += delegate (object sender, CancelEventArgs e)
                 {
                     OnElementClosing?.Invoke(sender, e);
@@ -276,32 +268,24 @@ namespace MVVMFramework.Models
             {
                 UIElementName = UIElementName.TrimStart("Page".ToCharArray());
                 UIElement = Get<Page>();
-                (UIElement as Page).Loaded += delegate (object sender, RoutedEventArgs e)
-                {
-                    OnElementLoaded?.Invoke(sender, e);
-                };
-                (UIElement as Page).Unloaded += delegate (object sender, RoutedEventArgs e)
-                {
-                    OnElementUnLoaded?.Invoke(sender, e);
-                };
             }
             else if (UIElementName.StartsWith("UC"))
             {
                 UIElementName = UIElementName.TrimStart("UC".ToCharArray());
                 UIElement = Get<UserControl>();
-                (UIElement as UserControl).Loaded += delegate (object sender, RoutedEventArgs e)
-                {
-                    OnElementLoaded?.Invoke(sender, e);
-                };
-                (UIElement as UserControl).Unloaded += delegate (object sender, RoutedEventArgs e)
-                {
-                    OnElementUnLoaded?.Invoke(sender, e);
-                };
             }
             else
             {
-                throw new FrameworkException(103,string.Format("元素[{0}]不符合命名规范！", UIElementName));
+                throw new FrameworkException(103, string.Format("元素[{0}]不符合命名规范！", UIElementName));
             }
+            UIElement.Loaded += delegate (object sender, RoutedEventArgs e)
+            {
+                OnElementLoaded?.Invoke(sender, e);
+            };
+            UIElement.Unloaded += delegate (object sender, RoutedEventArgs e)
+            {
+                OnElementUnLoaded?.Invoke(sender, e);
+            };
         }
 
         /// <summary>
@@ -309,7 +293,7 @@ namespace MVVMFramework.Models
         /// <para>用于更新UI显示</para>
         /// </summary>
         /// <param name="propertyName">改变了的属性的名称，为空时默认调用的方法名或属性名</param>
-        protected void OnPropertyChanged([CallerMemberName]string propertyName="")
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

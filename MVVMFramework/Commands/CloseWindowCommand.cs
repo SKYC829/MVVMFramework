@@ -1,7 +1,4 @@
 ﻿using MVVMFramework.Configs;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 
 namespace MVVMFramework.Commands
@@ -9,12 +6,12 @@ namespace MVVMFramework.Commands
     /// <summary>
     /// 关闭窗口自定义命令
     /// </summary>
-    public class CloseWindowCommand:BaseCommand
+    public class CloseWindowCommand : BaseCommand
     {
         /// <summary>
         /// 构造函数
         /// </summary>
-        public CloseWindowCommand():base(Close)
+        public CloseWindowCommand() : base(Close)
         {
 
         }
@@ -25,7 +22,7 @@ namespace MVVMFramework.Commands
         /// <param name="para">要关闭的窗体</param>
         private static void Close(object para)
         {
-            if(para is Window window)
+            if (para is Window window)
             {
                 window?.Close();
             }

@@ -33,6 +33,42 @@
             </summary>
             <param name="executeCode">命令要执行的委托方法</param>
         </member>
+        <member name="T:MVVMFramework.Commands.CloseWindowCommand">
+            <summary>
+            关闭窗口自定义命令
+            </summary>
+        </member>
+        <member name="M:MVVMFramework.Commands.CloseWindowCommand.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MVVMFramework.Commands.CloseWindowCommand.Close(System.Object)">
+            <summary>
+            关闭命令，传入窗体
+            </summary>
+            <param name="para">要关闭的窗体</param>
+        </member>
+        <member name="T:MVVMFramework.Commands.ResizeWindowCommand">
+            <summary>
+            最大化最小化窗体自定义命令
+            </summary>
+        </member>
+        <member name="M:MVVMFramework.Commands.ResizeWindowCommand.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:MVVMFramework.Commands.VisibilityFrameworkElementCommand">
+            <summary>
+            UI元素可视属性的自定义命令
+            </summary>
+        </member>
+        <member name="M:MVVMFramework.Commands.VisibilityFrameworkElementCommand.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
         <member name="T:MVVMFramework.Configs.FrameworkException">
             <summary>
             自定义异常信息

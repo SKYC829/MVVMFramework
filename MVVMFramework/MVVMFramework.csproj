@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netcoreapp3.1|AnyCPU'">
-    <DocumentationFile>G:\MyProjects\CSharpProject\2020\MVVMFramework\MVVMFramework\MVVMFramework\MVVMFramework.xml</DocumentationFile>
+    <DocumentationFile>.\MVVMFramework.xml</DocumentationFile>
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>

@@ -244,7 +244,9 @@ namespace MVVMFramework.Models
             StackTrace stackTrace = new StackTrace(true);
             //GetFrames[0]为当前，1为调用方法，2为其上上层，依次类推
             //因为我们要获取引用了这个dll的命名空间，所以是当前的调用方法的上层，所以是2
-            return stackTrace.GetFrames()[2].GetMethod().DeclaringType.Namespace;
+            //之所以要Split一下是因为有些类有可能是放在命名空间下的某个文件夹下的,就会出现命名空间.文件夹这个情况
+            //这个情况会导致加载程序集失败,所以要先Split一下,把他去除掉
+            return stackTrace.GetFrames()[2].GetMethod().DeclaringType.Namespace.Split('.').FirstOrDefault();
         }
 
         /// <summary>
